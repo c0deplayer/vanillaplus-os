@@ -1,4 +1,4 @@
 name: download-debs
 type: shell
 commands:
-  - wget https://go.microsoft.com/fwlink/?LinkID=760868 -O /deb-pkgs/code.deb
+  - wget https://update.code.visualstudio.com/latest/linux-deb-x64/stable -O /deb-pkgs/code.deb
