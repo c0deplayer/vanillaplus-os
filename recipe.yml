@@ -52,6 +52,7 @@ modules:
     - cp -r Bibata-Modern-Classic "$ICONS_DIR"
     - tar -xf "adw-gtk3v${ADW_GTK3_VERSION}.tar.xz"
     - unzip -qq MoreWaita-main.zip
+    - cp -r MoreWaita-main "$ICONS_DIR"
     - find "$MOREWAITA_MAIN_DIR" \( -name "*.build" -o -name "*.sh" -o -name "*.md" -o -name "*.py" -o -name "*.git" \) -type f -delete
     - mv "$MOREWAITA_MAIN_DIR" "$MOREWAITA_DIR"
     - gtk-update-icon-cache -f -t "$MOREWAITA_DIR"
