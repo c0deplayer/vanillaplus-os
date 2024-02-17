@@ -17,10 +17,19 @@ modules:
 - name: package-modules
   type: includes
   includes:
-    - modules/10-download-debs
+    - modules/49-download-debs
     - modules/50-install-debs
     - modules/60-install-packages
     - modules/70-remove-packages
+
+- name: printer-drivers
+  type: shell
+  commands:
+    - wget https://support.brother.com/g/b/files/dlf/dlf007072/hl1110lpr-3.0.1-1.i386.deb -O /sources/hl1110lpr-3.0.1-1.i386.deb
+    - wget https://support.brother.com/g/b/files/dlf/dlf007074/hl1110cupswrapper-3.0.1-1.i386.deb -O /sources/hl1110cupswrapper-3.0.1-1.i386.deb
+    - dpkg -i --force-all /sources/hl1110lpr-3.0.1-1.i386.deb
+    - dpkg -i --force-all /sources/hl1110cupswrapper-3.0.1-1.i386.deb
+    - apt -y install -f
 
 - name: set-image-name-abroot
   type: includes
@@ -30,9 +39,9 @@ modules:
 - name: cleanup
   type: shell
   commands:
-  - apt-get autoremove -y
-  - apt-get clean
-  - lpkg --lock
+    - apt-get autoremove -y
+    - apt-get clean
+    - lpkg --lock
 
 - name: fsguard
   type: fsguard
