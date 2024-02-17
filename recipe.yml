@@ -31,6 +31,34 @@ modules:
     - dpkg -i --force-all /sources/hl1110cupswrapper-3.0.1-1.i386.deb
     - apt -y install -f
 
+- name: systemwide-themes
+  type: shell
+  commands:
+    - FILES_ROOT="/tmp/files"
+    - ICONS_DIR="/usr/share/icons"
+    - MOREWAITA_DIR="$ICONS_DIR/MoreWaita"
+    - MOREWAITA_MAIN_DIR="$MOREWAITA_DIR-main"
+    - ADW_GTK3_VERSION="5-2"
+    - mkdir -p "$FILES_ROOT"
+    - mkdir -p "$ICONS_DIR"
+    - wget https://github.com/ful1e5/Bibata_Cursor/releases/latest/download/Bibata-Modern-Ice.tar.xz -O "${FILES_ROOT}Bibata-Modern-Ice.tar.xz"
+    - wget https://github.com/ful1e5/Bibata_Cursor/releases/latest/download/Bibata-Modern-Classic.tar.xz -O "${FILES_ROOT}Bibata-Modern-Classic.tar.xz"
+    - wget "https://github.com/lassekongo83/adw-gtk3/releases/latest/download/adw-gtk3v${ADW_GTK3_VERSION}.tar.xz" -O ${FILES_ROOT}adw-gtk3v5-2.tar.xz
+    - wget https://github.com/somepaulo/MoreWaita/archive/refs/heads/main.zip -O ${FILES_ROOT}MoreWaita-main.zip
+    - cd /tmp/files
+    - tar -xf Bibata-Modern-Ice.tar.xz
+    - cp -r Bibata-Modern-Ice "$ICONS_DIR"
+    - tar -xf Bibata-Modern-Classic.tar.xz
+    - cp -r Bibata-Modern-Classic "$ICONS_DIR"
+    - tar -xf "adw-gtk3v${ADW_GTK3_VERSION}.tar.xz"
+    - unzip -qq MoreWaita-main.zip
+    - find "$MOREWAITA_MAIN_DIR" \( -name "*.build" -o -name "*.sh" -o -name "*.md" -o -name "*.py" -o -name "*.git" \) -type f -delete
+    - mv "$MOREWAITA_MAIN_DIR" "$MOREWAITA_DIR"
+    - gtk-update-icon-cache -f -t "$MOREWAITA_DIR"
+    - xdg-desktop-menu forceupdate
+    - cp -r "adw-gtk3" "$ICONS_DIR"
+    - cp -r "adw-gtk3-dark" "$ICONS_DIR"
+
 - name: set-image-name-abroot
   type: includes
   includes:
