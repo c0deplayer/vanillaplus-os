@@ -1,3 +1,4 @@
+# vib
 base: ghcr.io/vanilla-os/nvidia:main
 name: Personal Vanilla+ Nvidia Desktop
 id: vanillaplus-os
