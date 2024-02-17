@@ -1,0 +1,4 @@
+name: download-debs
+type: shell
+commands:
+  - wget https://go.microsoft.com/fwlink/?LinkID=760868 -O /deb-pkgs/code.deb

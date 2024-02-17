@@ -2,13 +2,16 @@ name: Vib Build
 
 on:
   push:
-    branches: [ "main" ]
+    branches:
+      - main
+    paths-ignore: 
+      - "**.md"
   schedule:
     - cron: '21 3 * * *'
   workflow_dispatch:
 
 env:
-  CUSTOM_IMAGE_NAME: custom
+  CUSTOM_IMAGE_NAME: vanillaplus-os
 
 jobs:
   check_update:

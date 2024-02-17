@@ -1,8 +1,8 @@
-base: ghcr.io/vanilla-os/desktop:main
-name: Custom Vanilla Desktop
-id: vanilla-custom
+base: ghcr.io/vanilla-os/nvidia:main
+name: Personal Vanilla+ Nvidia Desktop
+id: vanillaplus-os
 labels:
-  maintainer: self-maintained
+  maintainer: Jakub Kujawa <ZK_Jakub@proton.me>
 args:
   DEBIAN_FRONTEND: noninteractive
 
@@ -13,25 +13,13 @@ modules:
   - lpkg --unlock
   - apt-get update
 
-# Put your custom actions behind this comment
-
-- name: example-packages
-  type: apt
-  source:
-    packages:
-    - vim
-
-- name: example-commands
-  type: shell
-  commands:
-  - echo Example output
-
-- name: example-modules
+- name: package-modules
   type: includes
   includes:
+    - modules/10-download-debs
     - modules/50-install-debs
-
-# Put your custom actions before this comment
+    - modules/60-install-packages
+    - modules/70-remove-packages
 
 - name: set-image-name-abroot
   type: includes
@@ -59,7 +47,7 @@ modules:
         - rm -f ./minisign.pub ./minisign.key 
         - chmod +x /usr/sbin/init
 
-- name: cleanup2
+- name: cleanup-two
   type: shell
   commands:
     - rm -rf /tmp/*

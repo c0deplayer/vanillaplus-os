@@ -1,0 +1,6 @@
+name: install-packages
+type: apt
+source:
+  packages:
+    - libayatana-appindicator3-1
+    - libavcodec60
