@@ -78,6 +78,12 @@ modules:
         - rm -f ./minisign.pub ./minisign.key 
         - chmod +x /usr/sbin/init
 
+- name: brave-browser-symlink
+  type: shell
+  commands:
+    - echo "Brave Browser symlink"
+    - ln -s /opt/brave.com/brave/brave-browser  /usr/bin/brave-browser-stable
+
 - name: cleanup-two
   type: shell
   commands:
