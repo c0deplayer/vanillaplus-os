@@ -20,6 +20,7 @@ modules:
     - modules/49-download-debs
     - modules/50-install-debs
     - modules/60-install-packages
+    - modules/61-brave-browser
     - modules/70-remove-packages
     
 - name: systemwide-themes
