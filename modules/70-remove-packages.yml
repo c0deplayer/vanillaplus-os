@@ -1,4 +1,4 @@
 name: remove-packages
 type: shell
 commands:
-  - apt-get remove -y gnome-software gnome-system-monitor
+  - apt-get remove -y gnome-software gnome-system-monitor yelp

@@ -3,4 +3,3 @@ type: apt
 source:
   packages:
     - printer-driver-brlaser
-    - libayatana-appindicator3-1
