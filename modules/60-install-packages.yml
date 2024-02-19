@@ -3,3 +3,6 @@ type: apt
 source:
   packages:
     - printer-driver-brlaser
+    - usbguard
+    - chkrootkit
+    - lynis
