@@ -4,5 +4,6 @@ source:
   packages:
     - printer-driver-brlaser
     - usbguard
+    - usbguard-notifier
     - chkrootkit
     - lynis
