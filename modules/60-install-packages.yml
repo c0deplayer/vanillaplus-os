@@ -2,6 +2,7 @@ name: install-packages
 type: apt
 source:
   packages:
+    - btop
     - printer-driver-brlaser
     - usbguard
     - usbguard-notifier
